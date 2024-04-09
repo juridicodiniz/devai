@@ -1,0 +1,17 @@
+
+
+
+
+
+requisição post:   localhost/devai/dev-app-web/codigo_prof/productserver/registrar.php
+
+
+
+requisição get:  localhost/devai/dev-app-web/codigo_prof/productserver/login.php
+Enviar no cabeça: autorização que é o login e senha
+
+Usar no postman: Autorization:
+Type:Basic Auth
+E preencher os campos de login e senha.
+login: daniel
+senha:123456

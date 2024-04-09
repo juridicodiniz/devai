@@ -1,0 +1,12 @@
+Servidor BD Postgresql Elephantsql
+Clique o link https://www.elephantsql.com/ para abrir o recurso.
+
+
+
+
+
+$host        = "host = silly.db.elephantsql.com;";
+$port        = "port = 5432;";
+$dbname      = "dbname = zgeowjui;";
+$dbuser 	 = "zgeowjui";
+$dbpassword	 = "51_NhTHUEJwlditNyeuguPPZ5_6BK_me";
