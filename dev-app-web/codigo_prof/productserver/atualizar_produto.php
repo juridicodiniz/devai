@@ -4,7 +4,8 @@
 ● Função: atualiza um produto específico. Somente o usuário que criou o produto deve ser capaz de atualizar o produto.
 
   * Método: POST 
-  *  Autenticação: SIM
+  * Autenticação: SIM
+  * Autor: Fernando Diniz
  
 ● Parâmetros de entrada:
     id -> indica o id do produto a ser atualizado.

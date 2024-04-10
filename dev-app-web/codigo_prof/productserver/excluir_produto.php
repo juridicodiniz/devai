@@ -4,8 +4,9 @@
  
 Nome: excluir_produto.php
 Função: apaga um produto específico. Somente o usuário que criou o produto deve ser capaz de remover o produto.
-Método: POST
-Autenticação: SIM
+* Método: POST
+* Autenticação: SIM
+* Autor: Fernando Diniz
 
 ●  Parâmetros de entrada:
 id -> indica o id do produto a ser excluido.
@@ -60,12 +61,9 @@ if(autenticar($db_con)) {
 		
 		// Aqui sao obtidos os parametros
                 $id = $_POST['id'];
-						
-		$client_id="ce5d3a656e2aa51";
-		
-		
+					
 		// Alteração no BD.
-                $consulta = $db_con->prepare("DELETE FROM  WHERE usuarios_login = '$login' and id = $id ");
+                $consulta = $db_con->prepare("DELETE FROM produtos  WHERE (usuarios_login = '$login' and id = $id )");
                 
                 
 		if ($consulta->execute()) {

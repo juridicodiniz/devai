@@ -44,7 +44,9 @@ if(autenticar($db_con)) {
 		$preco = $_POST['preco'];
 		$descricao = $_POST['descricao'];
 		
-		$filename = $_FILES['img']['tmp_name'];
+		$filename = $_FILES['img']['tmp_name'];                
+                               
+                
 		$client_id="ce5d3a656e2aa51";
 		$handle = fopen($filename, "r");
 		$data = fread($handle, filesize($filename));
@@ -57,9 +59,11 @@ if(autenticar($db_con)) {
 		curl_setopt($curl, CURLOPT_POST, 1);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $pvars);
+                
+                            
 		$out = curl_exec($curl);
 		curl_close ($curl);
-		$pms = json_decode($out,true);
+		$pms = json_decode($out,true);               
 		$img_url=$pms['data']['link'];
 	
 
