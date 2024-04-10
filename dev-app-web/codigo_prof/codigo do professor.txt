@@ -1,17 +1,42 @@
 
+Bom tipo de Autenticação: jwt Bearer
 
 
 
+Requisição post:   localhost/devai/dev-app-web/codigo_prof/productserver/registrar.php
+body: x-www-form-urlencoded
+key = novo_login     Value = fernando.diniz
+key = nova_senha     Value = 1234
 
-requisição post:   localhost/devai/dev-app-web/codigo_prof/productserver/registrar.php
 
 
+Crie o login: fernando.diniz
+Senha:1234
 
-requisição get:  localhost/devai/dev-app-web/codigo_prof/productserver/login.php
+=======================================================================================
+Requisição get:  localhost/devai/dev-app-web/codigo_prof/productserver/login.php
 Enviar no cabeça: autorização que é o login e senha
 
 Usar no postman: Autorization:
 Type:Basic Auth
 E preencher os campos de login e senha.
-login: daniel
-senha:123456
+login: fernando.diniz
+senha:1234
+
+===========================================================================================
+Requisição Post:  localhost/devai/dev-app-web/codigo_prof/productserver/criar_produto.php
+
+body: form-data
+key = nome     		type=text	Value = "produto_d"
+key = preco     	type=text	Value = 100
+key = descricao     	type=text	Value = "Produto do tipo D"
+key = img     		type=file	Value = selecionar um arquivo tipo figura no computador local
+============================================================================================
+
+Requisição get:  localhost/devai/dev-app-web/codigo_prof/productserver/pegar_produtos.php
+Paramentros:
+key = offset Value = 1
+key = limit  Value = 10
+
+
+
