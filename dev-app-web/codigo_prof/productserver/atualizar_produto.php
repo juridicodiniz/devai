@@ -73,8 +73,11 @@ if(autenticar($db_con)) {
 		$nova_descricao = $_POST['nova_descricao'];
 		
 		$filename = $_FILES['nova_img']['tmp_name'];
-/*************************************************/$client_id="ce5d3a656e2aa51"; 
-		$handle = fopen($filename, "r");
+                
+                //$client_id="ce5d3a656e2aa51"; //ide do professor
+                $client_id="055517b9ad8311f"; //meu id
+		
+                $handle = fopen($filename, "r");
 		$data = fread($handle, filesize($filename));
 		$pvars   = array('image' => base64_encode($data));
 		$timeout = 30;

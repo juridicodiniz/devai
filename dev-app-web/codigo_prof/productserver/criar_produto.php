@@ -47,7 +47,9 @@ if(autenticar($db_con)) {
 		$filename = $_FILES['img']['tmp_name'];                
                                
                 
-		$client_id="ce5d3a656e2aa51";
+		//$client_id="ce5d3a656e2aa51";
+                $client_id="055517b9ad8311f";
+                
 		$handle = fopen($filename, "r");
 		$data = fread($handle, filesize($filename));
 		$pvars   = array('image' => base64_encode($data));
