@@ -45,6 +45,49 @@ exports.getAllProducts = async (req, res) => {
     }
 };
 
+
+exports.getUserProducts = async (req, res) => {
+    if(req.query.hasOwnProperty('limit') && req.query.hasOwnProperty('offset')) {
+   
+        const { limit, offset } = req.query;
+        try {
+            const getAllProductsQuery = await db.query(
+            "SELECT * FROM produtos  WHERE usuarios_login = '" + req.auth.user + "' LIMIT $1 OFFSET $2",
+                [limit, offset]
+            );
+            if(getAllProductsQuery.rows.length !== 0) {
+                res.status(200).send(
+                    {
+                        sucesso : 1,
+                        produtos : getAllProductsQuery.rows,
+                        qtde_produtos : getAllProductsQuery.rows.length
+                    }
+                );
+            }
+        }
+        catch (err) {
+            var errorMsg = "erro BD: ";-
+                res.status(200).send(
+                    {
+                        sucesso : 0,
+                        cod_erro : 2,
+                        erro : errorMsg.concat(err)
+                    }
+                );
+        }
+    }
+    else {
+        var errorMsg = "faltam parametros";
+        res.status(200).send(
+            {
+                sucesso : 0,
+                cod_erro : 3,
+                erro : errorMsg
+            }
+        );
+    }
+};
+
 exports.addProduct = async (req, res) => {
     if('nome' in req.body && 'preco' in req.body && 'descricao' in req.body 
     && req.hasOwnProperty('file')) {

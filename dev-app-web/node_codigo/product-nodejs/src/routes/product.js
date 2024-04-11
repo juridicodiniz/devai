@@ -17,6 +17,9 @@ var challangeAuth = basicAuth(
 );
 
 router.get('/pegar_produtos', challangeAuth, productController.getAllProducts);
+
+router.get('/pegar_produtos_user', challangeAuth, productController.getUserProducts);
+
 router.post('/criar_produto', challangeAuth, upload.single('img'), productController.addProduct);
 
 module.exports = router;
