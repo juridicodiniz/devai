@@ -20,6 +20,13 @@ router.get('/pegar_produtos', challangeAuth, productController.getAllProducts);
 
 router.get('/pegar_produtos_user', challangeAuth, productController.getUserProducts);
 
+router.get('/pegar_detalhes_produto', challangeAuth, productController.getDetalhesProduct);
+
+
+router.post('/atualizar_produto', challangeAuth, upload.single('nova_img'), productController.UpdateProduct);
+
+router.delete('/excluir_produto', challangeAuth, productController.deleteProduct);
+
 router.post('/criar_produto', challangeAuth, upload.single('img'), productController.addProduct);
 
 module.exports = router;
