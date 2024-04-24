@@ -36,9 +36,7 @@ export default function DetalheProduct({itensPerPage}) {
 
     // url: 'https://productifes-dispmoveisbsi.b4a.run/pegar_detalhes_produto.php',  
    //  params1: {
-      // id :41,              
-      // limit: itensPerPage,
-      // offset: itemOffset
+      // id :41    
   // };
 
     useEffect( () => {
@@ -47,23 +45,24 @@ export default function DetalheProduct({itensPerPage}) {
             url: 'https://productifes-dispmoveisbsi.b4a.run/pegar_produtos.php',
             params: {
                   limit: itensPerPage,
-                 offset: itemOffset              
+                  offset: itemOffset              
             },
             auth: {
                 username: getUser(),
                 password: getPassword()
             },
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        }).then((response) => {
-            console.log(response.data);
-            if(response.data["sucesso"] == 1) {               
+        }).then((response) => {        
+            console.log(response.data);  
+        
+            if(response.data["sucesso"] == 1) {                     
                 setCurrentItems(response.data["produtos"]);
                 let qtde_produtos = response.data["qtde_produtos"];
                 setItensCount(qtde_produtos);
                 setPageCount( qtde_produtos / itensPerPage);
             }
-            else {
-                window.alert("Erro ao obter lista de produtos: \n" . response.data["erro"]);
+            else {               
+                window.alert("Erro ao obter DETALHE do produto: \n" + response.data["erro"]);
             }
         })
     }, [itemOffset, itensPerPage]);
