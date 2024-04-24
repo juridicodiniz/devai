@@ -1,4 +1,16 @@
+Criado conta no https://customer.elephantsql.com/instance
+autenticado pelo google
+user diniz
 
+criado banco:
+server: kesavan.db.elephantsql.com (kesavan-01)
+name: dtpwgsyl
+user:dtpwgsyl
+pass:rC1B56H-h8bChYD_EHuNKprjAXP800dc
+
+url:postgres://dtpwgsyl:rC1B56H-h8bChYD_EHuNKprjAXP800dc@kesavan.db.elephantsql.com/dtpwgsyl
+
+==================================
 Bom tipo de Autenticação: jwt Bearer
 
 instalações:
@@ -43,6 +55,11 @@ Requisição get:  http://localhost:3000/api/pegar_produtos
 Paramentros:
 key = offset Value = 0
 key = limit  Value = 50
+
+====
+pegar_detalhes_produto.php
+
+https://productifes-dispmoveisbsi.b4a.run/pegar_detalhes_produto.php
 
 
 

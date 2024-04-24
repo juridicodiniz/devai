@@ -21,7 +21,7 @@ function Items({ currentItems }) {
     );
 }
 
-export default function Home({itensPerPage}) {
+export default function DetalheProduct({itensPerPage}) {
 
     const handlePageClick = (event) => {
         const newOffset = event.selected * itensPerPage % itensCount;

@@ -24,6 +24,8 @@ export default function ProductItem({item}) {
                                 color="text.primary"
                             >
                                 {item.preco}
+                                {item.descricao}
+                                {item.criado_por}
                             </Typography>
                     </React.Fragment>
                 }

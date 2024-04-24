@@ -1,1 +1,4 @@
 Código fonte para o frontend da aplicação Produtos em REACTArquivo
+
+para rodar, comando no terminal:
+npm start

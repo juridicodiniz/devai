@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import CreateProduct from './pages/CreateProduct';
+import DetalheProduct from './pages/DetalheProduct';
 import NavBar from './components/NavBar';
  
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path='/login' element={<Login onLogin={handleLogin}/>} />
           <Route path='/register' element={<Register/>} />
           <Route path='/createProduct' element={<CreateProduct/>} />
+          <Route path='/detalheProduct' element={<DetalheProduct/>} />
         </Routes>
       </Router>
     </div>

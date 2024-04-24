@@ -110,7 +110,7 @@ export default function CreateProduct() {
                     type="submit"
                     className="button"
                 >
-                    Criar Produto
+                    Criar Produto 
                 </button>
             </form>
         </div>

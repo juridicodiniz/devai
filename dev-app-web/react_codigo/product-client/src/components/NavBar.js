@@ -21,17 +21,19 @@ export default function NavBar({onLogin}) {
                     <img src={Logo} />
                     <div className="hiddenLinks">
                     <Link to="/home"> Home </Link>
-                    <Link to="/createProduct"> Criar Produto </Link>
+                    <Link to="/createProduct"> Criar Produto</Link>
                     </div>
                 </div>
                 <div className="rightSide">
                     <Link to="/home"> Home </Link>
-                    <Link to="/createProduct"> Criar Produto </Link>
+                    <Link to="/createProduct"> Criar Produto</Link>
+                    <Link to="/detalheProduct"> Detalhe do produto</Link>
                     <p>Olá, {userName}</p>
                     <button onClick={toggleNavbar}>
                     <ReorderIcon />
                     </button>
-                </div>
+                </div>           
+
             </div>
         );
     }
