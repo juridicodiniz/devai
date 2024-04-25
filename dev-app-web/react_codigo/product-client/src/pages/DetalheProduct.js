@@ -8,97 +8,56 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import '../styles/Home.css';
 
-function Items({ currentItems }) {
-    return (
-        <div style={{margin:"auto"}}>
-            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                {currentItems && currentItems.map((item) => (
-                    <ProductItem item={item} />
-                ))}
-                
-            </List>
-        </div>
-    );
-}
-
-export default function DetalheProduct({itensPerPage}) {
-
-    const handlePageClick = (event) => {
-        const newOffset = event.selected * itensPerPage % itensCount;
-        setItemOffset(newOffset);
-    }
-
-    const [currentItems, setCurrentItems] = useState(null);
-    const [pageCount, setPageCount] = useState(0);
-    const [itemOffset, setItemOffset] = useState(0);
-    const [itensCount, setItensCount] = useState(1);
 
 
-    // url: 'https://productifes-dispmoveisbsi.b4a.run/pegar_detalhes_produto.php',  
-   //  params1: {
-      // id :41    
-  // };
+export default function DetalheProduct() {
+      
+    const [currentItemProduto, setCurrentItemProduto] = useState(null);
+    
 
     useEffect( () => {
         axios({
             method: 'get',           
-            url: 'https://productifes-dispmoveisbsi.b4a.run/pegar_produtos.php',
-            params: {
-                  limit: itensPerPage,
-                  offset: itemOffset              
+            url: 'https://productifes-dispmoveisbsi.b4a.run/pegar_detalhes_produto.php',
+            params: {                 
+                  id: 41
+                             
             },
             auth: {
                 username: getUser(),
                 password: getPassword()
             },
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        }).then((response) => {        
-            console.log(response.data);  
-        
-            if(response.data["sucesso"] == 1) {                     
-                setCurrentItems(response.data["produtos"]);
-                let qtde_produtos = response.data["qtde_produtos"];
-                setItensCount(qtde_produtos);
-                setPageCount( qtde_produtos / itensPerPage);
+        }).then((response) => {             
+            window.alert("DETALHE do produto: " + 
+             "\n" + response.data.nome  +
+             "\n" + response.data.preco +
+             "\n" + response.data.descricao +
+             "\n" + response.data.criado_porme +
+             "\n" + response.data.img
+            );           
+            
+            if(response.data["sucesso"] == 1) {                  
+                setCurrentItemProduto(response.data);   
+                console.log(response.data)             
             }
             else {               
                 window.alert("Erro ao obter DETALHE do produto: \n" + response.data["erro"]);
             }
+          
         })
-    }, [itemOffset, itensPerPage]);
+    }, [0, 1]);
 
-
-    return(
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            padding: 0,
-            boxSizing: 'border-box',
-            width: '100%',
-            height: '100%',
-          }}>
-            <Items currentItems={currentItems} />
-            <ReactPaginate
-                nextLabel={<ArrowForwardIosIcon style={{ fontSize: 18, width: 150 }} />}
-                onPageChange={handlePageClick}
-                pageRangeDisplayed={3}
-                marginPagesDisplayed={2}
-                pageCount={pageCount}
-                previousLabel={<ArrowBackIosIcon style={{ fontSize: 18, width: 150 }} />}
-                pageClassName="item pagination-page"
-                pageLinkClassName="item"
-                previousClassName="item previous"
-                previousLinkClassName="item"
-                nextClassName="item next"
-                nextLinkClassName="item"
-                breakLabel="..."
-                breakClassName="item break-me"
-                breakLinkClassName="item"
-                containerClassName="pagination"
-                activeClassName="item active "
-                renderOnZeroPageCount={null}
-            />
+    return (
+        <div>
+                  
+         
+                  
+    
+      
+      
         </div>
-    );
-}
+      );
+    };
+    
+ 
