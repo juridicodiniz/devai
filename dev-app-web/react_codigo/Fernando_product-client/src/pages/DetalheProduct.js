@@ -12,9 +12,15 @@ import '../styles/Home.css';
 
 export default function DetalheProduct() {
       
-    const [currentItemProduto, setCurrentItemProduto] = useState(null);
-    
-
+    var [currentItemProduto, setCurrentItemProduto] = useState(null);
+    const [id, setid] = useState(null);
+    const [nome, setnome] = useState(null);
+    const [preco, setpreco] = useState(null);
+    const [descricao, setdescricao] = useState(null);
+    const [criado_por, setcriado_por] = useState(null);
+    const [img, setimg] = useState(null);
+   
+   
     useEffect( () => {
         axios({
             method: 'get',           
@@ -38,7 +44,13 @@ export default function DetalheProduct() {
             );           
             
             if(response.data["sucesso"] == 1) {                  
-                setCurrentItemProduto(response.data);   
+                setCurrentItemProduto(response.data);  
+                setid(response.data.id); 
+                setnome(response.data.nome);                 
+                setpreco(response.data.preco);
+                setdescricao(response.data.descricao);
+                setcriado_por(response.data.criado_por);
+                setimg(response.data.img);
                 console.log(response.data)             
             }
             else {               
@@ -50,12 +62,13 @@ export default function DetalheProduct() {
 
     return (
         <div>
-                  
-         
-                  
-    
-      
-      
+             <div key={id}>       
+              <p>{nome}</p>
+              <p>{preco}</p>
+              <p>{descricao}</p>
+              <p>{criado_por}</p>
+              <p>{img}</p>
+            </div>
         </div>
       );
     };
